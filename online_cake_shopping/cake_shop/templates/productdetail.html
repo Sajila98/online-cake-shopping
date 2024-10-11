@@ -1,0 +1,271 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Cake Template">
+    <meta name="keywords" content="Cake, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cake | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/flaticon.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/barfiller.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
+</head>
+{% if request.session %}
+<body>
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header__top__inner">
+                            <div class="header__top__left">
+                                <ul>
+
+                                    </li>
+                                    <li><a href="#">+91 8606219985</a> <span class= "ca"</span>
+                                    </li>
+                                    <li><a href="#">crackake@gmail.com</a> <span class= "ca" </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="header__logo">
+                                <a href="index"><img src="{% static '/img/logo.png'%}" alt=""></a>
+                            </div>
+                            <div class="header__top__right">
+                                <div class="header__top__right__links">
+                                    <a href="#" class="search-switch"><img src="{% static '/img/icon/search.png'%}" alt=""></a>
+                                    <a href="#"><img src="{% static '/img/icon/heart.png'%}" alt=""></a>
+                                    <div class="header__top__right__cart">
+                                        <a href="#"><img src="{% static '/img/icon/cart.png'%}" alt=""> <span>0</span></a>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open"><i class="fa fa-bars"></i></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li class="active"><a href="index">Home</a></li>
+                            <li><a href="about">About</a></li>
+                            <li><a href="shop">Shop</a></li>
+                            <li><a href="#">Pages</a>
+                                <ul class="dropdown">
+                                    <li><a href="shop-details">Shop Details</a></li>
+                                    <li><a href="shoping-cart">Shoping Cart</a></li>
+                                    <li><a href="checkout">Check Out</a></li>
+                                    <li><a href="wisslist">Wisslist</a></li>
+                                    <li><a href="blog-details">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="blog">Blog</a></li>
+                            <li><a href="contact">Contact</a></li>
+                            <li><a href="#">Welcome:{{name}}</a>
+                                <ul class="dropdown">
+                                    <li><a href="#">Orders</a></li>
+                                    <li><a href="/logout">Logout</a>
+                                </ul>
+                                {% else %}
+                            <li><a href="/signup">Sign Up</a></li>
+                            <li><a href="/login">Login</a></li>
+                                {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+  
+
+ <!-- Breadcrumb Begin -->
+ <div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="breadcrumb__text">
+                    <h2>Product detail</h2>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="breadcrumb__links">
+                    <a href="/index">Home</a>
+                    <a href="/shop">Shop</a>
+                    <span>{{product.name}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+
+<!-- Shop Details Section Begin -->
+<section class="product-details spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="product__details__img">
+                    <div class="product__details__big__img">
+                        <img class="big_img" src="{{product.image.url}}" alt="">
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="product__details__text">
+                    <div class="product__label">Cupcake</div>
+                    <h4>{{product.name}}</h4>
+                    <h5>Rs . {{product.price}}</h5>
+                    <p>{{product.description}}</p>
+                    <ul>
+                        <li><span></span></li>
+                        <li>Category: <span>{{product.category}}</span></li>
+                        <li><span></span></li>
+                    </ul>
+                    <div class="product__details__option">
+                        <div class="quantity">
+                            <div class="pro-qty">
+                                <input type="text" value="1">
+                            </div>
+                        </div>
+                        {% if request.session %}
+                        {% if item_already_in_cart %}
+
+                        <a href="/show_cart" class="btn btn-warning shadow px-5 py-2 mx-4">Go to Cart</a>
+
+                        {% else %}
+                        <form action="/add_to_cart" class="btn-block">
+                            {% csrf_token %}
+                            <input type="hidden" name="prod_id" value="{{product.id}}" id="prod_id">
+                            <button type="submit" class="primary-btn">Add to cart</button>
+                            <a href="#" class="heart__btn"><span class="icon_heart_alt"></span></a>
+                        </form>
+                        {% endif %}
+                        {% endif %}   
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<!-- Shop Details Section End -->
+    <!-- Map Begin -->
+    <div class="map">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-7">
+                    <div class="map__inner">
+
+                        <ul>
+                            <li>Thrissur, India</li>
+                            <li>Cracknbake@gmail.com</li>
+                            <li>+91 8606219985</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="map__iframe">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10784.188505644011!2d19.053119335158936!3d47.48899529453826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1543907528304" height="300" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+    </div>
+    <!-- Map End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer set-bg" data-setbg="{% static 'img/footer-bg.jpg'%}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>WORKING HOURS</h6>
+                        <ul>
+                            <li>Delivery time 08:00 am – 09:30 pm</li>
+                            <li>Order atleast 4 Hour before</li>
+                            <li>Free Delivery Around 10KM</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="#"><img src="{% static 'img/footer-logo.png'%}" alt=""></a>
+                        </div>
+                        <p>"Cake is happiness! If you know the way of the cake, you know the way of happiness!
+                             If you have a cake in front of you, you should not look any further for joy!"</p>
+                        <div class="footer__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__newslatter">
+                        <h6>Subscribe</h6>
+                        <p>Get latest updates and offers.</p>
+                        <form action="#">
+                            <input type="text" placeholder="Email">
+                            <button type="submit"><i class="fa fa-send-o"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <p class="copyright__text text-white">
+                      </p>
+                  </div>
+                  <div class="col-lg-5">
+                    <div class="copyright__widget">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+
+
+</body>
+<script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
+<script src="{% static 'js/jquery.nice-select.min.js'%}"></script>
+<script src="{% static 'js/jquery.barfiller.js'%}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js'%}"></script>
+<script src="{% static 'js/jquery.slicknav.js'%}"></script>
+<script src="{% static 'js/owl.carousel.min.js'%}"></script>
+<script src="{% static 'js/jquery.nicescroll.min.js'%}"></script>
+<script src="{% static 'js/main.js'%}"></script>
+</html>

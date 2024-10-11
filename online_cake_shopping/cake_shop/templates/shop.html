@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Cake Template">
+    <meta name="keywords" content="Cake, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cake | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/flaticon.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/barfiller.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
+</head>
+{% if request.session %}
+<body>
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header__top__inner">
+                            <div class="header__top__left">
+                                <ul>
+
+                                    </li>
+                                    <li><a href="#">+91 8606219985</a> <span class= "ca"</span>
+                                    </li>
+                                    <li><a href="#">crackake@gmail.com</a> <span class= "ca" </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="header__logo">
+                                <a href="index"><img src="{% static '/img/logo.png'%}" alt=""></a>
+                            </div>
+                            <div class="header__top__right">
+                                <div class="header__top__right__links">
+                                    <a href="#" class="search-switch"><img src="{% static '/img/icon/search.png'%}" alt=""></a>
+                                    <a href="#"><img src="{% static '/img/icon/heart.png'%}" alt=""></a>
+                                    <div class="header__top__right__cart">
+                                        <a href="#"><img src="{% static '/img/icon/cart.png'%}" alt=""> <span>0</span></a>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open"><i class="fa fa-bars"></i></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li class="active"><a href="index">Home</a></li>
+                            <li><a href="about">About</a></li>
+                            <li><a href="shop">Shop</a></li>
+                            <li><a href="#">Pages</a>
+                                <ul class="dropdown">
+                                    <li><a href="shop-details">Shop Details</a></li>
+                                    <li><a href="shoping-cart">Shoping Cart</a></li>
+                                    <li><a href="checkout">Check Out</a></li>
+                                    <li><a href="wisslist">Wisslist</a></li>
+                                    <li><a href="blog-details">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="blog">Blog</a></li>
+                            <li><a href="contact">Contact</a></li>
+                            <li><a href="#">Welcome:{{name}}</a>
+                                <ul class="dropdown">
+                                    <li><a href="#">Orders</a></li>
+                                    <li><a href="/logout">Logout</a>
+                                </ul>
+                                {% else %}
+                            <li><a href="/signup">Sign Up</a></li>
+                            <li><a href="/login">Login</a></li>
+                                {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+  
+
+<!-- Shop Section Begin -->
+<section class="shop spad">
+    <div class="container">
+        <div class="shop__option">
+            <div class="row">
+                <div class="col-lg-7 col-md-7">
+                    <div class="shop__option__search">
+                        <form action="#">
+                            <select>
+                                <option value="">Categories</option>
+                                <option value="/">All Product</option>
+                                {% for category in category %}
+                                <option value=""><a href="/?category={{category.id}}">{{category.name}}</option></a>
+                                {% endfor %}
+                            </select>
+                            <input type="text" placeholder="Search">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5">
+                    <div class="shop__option__right">
+                        <select>
+                            <option value="">Default sorting</option>
+                            <option value="">A to Z</option>
+                            <option value="">1 - 8</option>
+                            <option value="">Name</option>
+                        </select>
+                        <a href="#"><i class="fa fa-list"></i></a>
+                        <a href="#"><i class="fa fa-reorder"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% for product in product %}
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{{product.image.url}}">
+                        <div class="product__label">
+                            <span>Cupcake</span>
+                        </div>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">{{product.name}}</a></h6>
+                        <div class="product__item__price">{{product.price}}</div>
+                        <div class="cart_add">
+                            <a href="#">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- Shop Section End -->
+
+
+</body>
+<script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
+<script src="{% static 'js/jquery.nice-select.min.js'%}"></script>
+<script src="{% static 'js/jquery.barfiller.js'%}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js'%}"></script>
+<script src="{% static 'js/jquery.slicknav.js'%}"></script>
+<script src="{% static 'js/owl.carousel.min.js'%}"></script>
+<script src="{% static 'js/jquery.nicescroll.min.js'%}"></script>
+<script src="{% static 'js/main.js'%}"></script>
+</html>
